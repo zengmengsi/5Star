@@ -1,4 +1,4 @@
-var URL = "http://59.110.28.46:9000";
+var URL = "http://59.110.218.46:9000";
 
 var HTTP = cc.Class({
     extends: cc.Component,

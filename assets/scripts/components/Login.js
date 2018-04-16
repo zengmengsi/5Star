@@ -75,16 +75,28 @@ cc.Class({
     },
     
     start:function(){
-        var account =  cc.sys.localStorage.getItem("wx_account");
-        var sign = cc.sys.localStorage.getItem("wx_sign");
-        if(account != null && sign != null){
-            var ret = {
-                errcode:0,
-                account:account,
-                sign:sign
-            }
-            cc.vv.userMgr.onAuth(ret);
-        }   
+        console.log('start11111111')
+        wx.login({
+              success: function () {
+                wx.getUserInfo({
+                    openIdList: ['selfOpenId'],
+                    lang: 'zh_CN',
+                    success: (res) = > {
+                        console.log('success', res.data)
+                    }
+                })
+              }
+        })      
+        // var account =  cc.sys.localStorage.getItem("wx_account");
+        // var sign = cc.sys.localStorage.getItem("wx_sign");
+        // if(account != null && sign != null){
+        //     var ret = {
+        //         errcode:0,
+        //         account:account,
+        //         sign:sign
+        //     }
+        //     cc.vv.userMgr.onAuth(ret);
+        // }   
     },
     
     onBtnQuickStartClicked:function(){

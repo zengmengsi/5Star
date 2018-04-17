@@ -45,6 +45,7 @@ cc.Class({
     onLoadComplete:function(){
         this._isLoading = false;
         this._stateStr = "准备登陆";
+        console.log('准备登陆wx');
         cc.director.loadScene("login");
         cc.loader.onComplete = null;
     },

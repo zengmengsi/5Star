@@ -50,33 +50,28 @@ cc.Class({
                 console.log(ret.errmsg);
             }
             else{
-                wx.login({
-                  success: function () {
-                    wx.getUserInfo()
-                  }
-                })
-           //      if(!ret.userid){
-           //          //jump to register user info.
-           //          cc.director.loadScene("createrole");
-           //      }
-           //      else{
-           //          console.log(ret);
-           //          self.account = ret.account;
-        			// self.userId = ret.userid;
-        			// self.userName = ret.name;
-        			// self.lv = ret.lv;
-        			// self.exp = ret.exp;
-        			// self.coins = ret.coins;
-        			// self.gems = ret.gems;
-           //          self.roomData = ret.roomid;
-           //          self.sex = ret.sex;
-           //          self.ip = ret.ip;
-        			// cc.director.loadScene("hall");
-           //      }
+                if(!ret.userid){
+                    //jump to register user info.
+                    cc.director.loadScene("createrole");
+                }
+                else{
+                    console.log(ret);
+                    self.account = ret.account;
+        			self.userId = ret.userid;
+        			self.userName = ret.name;
+        			self.lv = ret.lv;
+        			self.exp = ret.exp;
+        			self.coins = ret.coins;
+        			self.gems = ret.gems;
+                    self.roomData = ret.roomid;
+                    self.sex = ret.sex;
+                    self.ip = ret.ip;
+        			cc.director.loadScene("hall");
+                }
             }
         };
         cc.vv.wc.show("正在登录游戏");
-        // cc.vv.http.sendRequest("/login",{account:this.account,sign:this.sign},onLogin);
+        cc.vv.http.sendRequest("/login",{account:this.account,sign:this.sign},onLogin);
     },
     
     create:function(name){

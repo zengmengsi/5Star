@@ -71,7 +71,8 @@ cc.Class({
                         let ret={
                             errcode:0,
                             account:res.userInfo.nickName,
-                            sign:res.signature
+                            sign:res.signature,
+                            userInfo:JSON.stringify(res.userInfo)
                         }
                         cc.vv.userMgr.onAuth(ret);
                     }

@@ -4,6 +4,7 @@ cc.Class({
         account:null,
 	    userId:null,
 		userName:null,
+        userInfo:null,
 		lv:0,
 		exp:0,
 		coins:0,
@@ -36,8 +37,10 @@ cc.Class({
             console.log(ret.errmsg);
         }
         else{
+            console.log(ret);
             self.account = ret.account;
             self.sign = ret.sign;
+            self.userInfo = ret.userInfo;
             cc.vv.http.url = "http://" + cc.vv.SI.hall;
             self.login();
         }   
@@ -71,7 +74,7 @@ cc.Class({
             }
         };
         cc.vv.wc.show("正在登录游戏");
-        cc.vv.http.sendRequest("/login",{account:this.account,sign:this.sign},onLogin);
+        cc.vv.http.sendRequest("/login",{account:this.account,sign:this.sign,userInfo:this.userInfo},onLogin);
     },
     
     create:function(name){

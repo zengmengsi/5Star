@@ -61,18 +61,19 @@ cc.Class({
         // });
         cc.vv.audioMgr.playBGM("bgMain.mp3");
 
-          // wx.login({
-          //   success:function(){
-          //       wx.getUserInfo()
-          //   }
-          // })
         wx.login({
               success: function () {
                 wx.getUserInfo({
                     openIdList: ['selfOpenId'],
                     lang: 'zh_CN',
                     success: function(res) {
-                        console.log('success', res)
+                        console.log('success', res);
+                        let ret={
+                            errcode:0,
+                            account:res.userInfo.nickName,
+                            sign:res.signature
+                        }
+                        cc.vv.userMgr.onAuth(ret);
                     }
                 })
               }

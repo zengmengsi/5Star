@@ -73,12 +73,15 @@ cc.Class({
         //    readonly: false,    // optional, default is false
         // },
         // ...
-        label: {
-            default: null,
-            type:cc.Label
-        },
+        // label: {
+        //     default: null,
+        //     type:cc.Label
+        // },
 
         loadingProgess:cc.Label,
+         _stateStr:'',
+        _progress:0.0,
+        _isLoading:false,
     },
 
     // use this for initialization
@@ -89,105 +92,151 @@ cc.Class({
             cvs.fitWidth = true;
         }
         initMgr();
-        console.log('haha'); 
-        this._mainScene = 'loading';
-        this.showSplash(function(){
-            var url = cc.url.raw('resources/ver/cv.txt');
-            cc.loader.load(url,function(err,data){
-                cc.VERSION = data;
-                console.log('current core version:' + cc.VERSION);
-                this.getServerInfo();
-            }.bind(this));
-        }.bind(this));
+        this.loadingProgess.string = this._stateStr;
+        this.startPreloading();
+        // console.log('haha'); 
+        // this._mainScene = 'loading';
+        // this.showSplash(function(){
+        //     var url = cc.url.raw('resources/ver/cv.txt');
+        //     cc.loader.load(url,function(err,data){
+        //         cc.VERSION = data;
+        //         console.log('current core version:' + cc.VERSION);
+        //         this.getServerInfo();
+        //     }.bind(this));
+        // }.bind(this));
     },
 
-    onBtnDownloadClicked:function(){
-        cc.sys.openURL(cc.vv.SI.appweb);
-    },
-    
-    showSplash:function(callback){
+    startPreloading:function(){
+        this._stateStr = "正在加载资源，请稍候"
+        this._isLoading = true;
         var self = this;
-        var SHOW_TIME = 3000;
-        var FADE_TIME = 500;
-        this._splash = cc.find("Canvas/splash");
-        if(true || cc.sys.os != cc.sys.OS_IOS || !cc.sys.isNative){
-            this._splash.active = true;
-            if(this._splash.getComponent(cc.Sprite).spriteFrame == null){
-                callback();
-                return;
-            }
-            var t = Date.now();
-            var fn = function(){
-                var dt = Date.now() - t;
-                if(dt < SHOW_TIME){
-                    setTimeout(fn,33);
-                }
-                else {
-                    var op = (1 - ((dt - SHOW_TIME) / FADE_TIME)) * 255;
-                    if(op < 0){
-                        self._splash.opacity = 0;
-                        callback();   
-                    }
-                    else{
-                        self._splash.opacity = op;
-                        setTimeout(fn,33);   
-                    }
-                }
-            };
-            setTimeout(fn,33);
-        }
-        else{
-            this._splash.active = false;
-            callback();
-        }
-    },
-    
-    getServerInfo:function(){
-        var self = this;
-        var onGetVersion = function(ret){
-            if(ret.version == null){
-                console.log("error.");
-            }
-            else{
-                cc.vv.SI = ret;
-                if(ret.version != cc.VERSION){
-                    cc.find("Canvas/alert").active = true;
-                }
-                else{
-                    cc.director.loadScene(self._mainScene);
-                }
+        
+        cc.loader.onProgress = function ( completedCount, totalCount,  item ){
+            //console.log("completedCount:" + completedCount + ",totalCount:" + totalCount );
+            if(self._isLoading){
+                self._progress = completedCount/totalCount;
             }
         };
         
-        var xhr = null;
-        var complete = false;
-        var fnRequest = function(){
-            self.loadingProgess.string = "正在连接服务器";
-            xhr = cc.vv.http.sendRequest("/get_serverinfo",null,function(ret){
-                xhr = null;
-                complete = true;
-                onGetVersion(ret);
-            });
-            setTimeout(fn,5000);            
-        }
+        cc.loader.loadResAll("textures", function (err, assets) {
+            self.onLoadComplete();
+        });      
+    },
+    onLoadComplete:function(){
+        this._isLoading = false;
+        this._stateStr = "准备登陆";
+        console.log('准备登陆wx');
+        // cc.director.loadScene("login");
+        cc.vv.audioMgr.playBGM("bgMain.mp3");
+
+        wx.login({
+              success: function () {
+                wx.getUserInfo({
+                    openIdList: ['selfOpenId'],
+                    lang: 'zh_CN',
+                    success: function(res) {
+                        console.log('success', res);
+                        let ret={
+                            errcode:0,
+                            account:res.userInfo.nickName,
+                            sign:res.signature,
+                            userInfo:JSON.stringify(res.userInfo)
+                        }
+                        // cc.vv.userMgr.onAuth(ret);
+                    }
+                })
+              }
+        })
+        cc.loader.onComplete = null;
+    },
+
+    // onBtnDownloadClicked:function(){
+    //     cc.sys.openURL(cc.vv.SI.appweb);
+    // },
+    
+    // showSplash:function(callback){
+    //     var self = this;
+    //     var SHOW_TIME = 3000;
+    //     var FADE_TIME = 500;
+    //     this._splash = cc.find("Canvas/splash");
+    //     if(true || cc.sys.os != cc.sys.OS_IOS || !cc.sys.isNative){
+    //         this._splash.active = true;
+    //         if(this._splash.getComponent(cc.Sprite).spriteFrame == null){
+    //             callback();
+    //             return;
+    //         }
+    //         var t = Date.now();
+    //         var fn = function(){
+    //             var dt = Date.now() - t;
+    //             if(dt < SHOW_TIME){
+    //                 setTimeout(fn,33);
+    //             }
+    //             else {
+    //                 var op = (1 - ((dt - SHOW_TIME) / FADE_TIME)) * 255;
+    //                 if(op < 0){
+    //                     self._splash.opacity = 0;
+    //                     callback();   
+    //                 }
+    //                 else{
+    //                     self._splash.opacity = op;
+    //                     setTimeout(fn,33);   
+    //                 }
+    //             }
+    //         };
+    //         setTimeout(fn,33);
+    //     }
+    //     else{
+    //         this._splash.active = false;
+    //         callback();
+    //     }
+    // },
+    
+    // getServerInfo:function(){
+    //     var self = this;
+    //     var onGetVersion = function(ret){
+    //         if(ret.version == null){
+    //             console.log("error.");
+    //         }
+    //         else{
+    //             cc.vv.SI = ret;
+    //             if(ret.version != cc.VERSION){
+    //                 cc.find("Canvas/alert").active = true;
+    //             }
+    //             else{
+    //                 cc.director.loadScene(self._mainScene);
+    //             }
+    //         }
+    //     };
         
-        var fn = function(){
-            if(!complete){
-                if(xhr){
-                    xhr.abort();
-                    self.loadingProgess.string = "连接失败，即将重试";
-                    setTimeout(function(){
-                        fnRequest();
-                    },5000);
-                }
-                else{
-                    fnRequest();
-                }
-            }
-        };
-        fn();
-    },
-    log:function(content){
-        this.label.string += content + '\n';
-    },
+    //     var xhr = null;
+    //     var complete = false;
+    //     var fnRequest = function(){
+    //         self.loadingProgess.string = "正在连接服务器";
+    //         xhr = cc.vv.http.sendRequest("/get_serverinfo",null,function(ret){
+    //             xhr = null;
+    //             complete = true;
+    //             onGetVersion(ret);
+    //         });
+    //         setTimeout(fn,5000);            
+    //     }
+        
+    //     var fn = function(){
+    //         if(!complete){
+    //             if(xhr){
+    //                 xhr.abort();
+    //                 self.loadingProgess.string = "连接失败，即将重试";
+    //                 setTimeout(function(){
+    //                     fnRequest();
+    //                 },5000);
+    //             }
+    //             else{
+    //                 fnRequest();
+    //             }
+    //         }
+    //     };
+    //     fn();
+    // },
+    // log:function(content){
+    //     this.label.string += content + '\n';
+    // },
 });

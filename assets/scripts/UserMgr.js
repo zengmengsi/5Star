@@ -33,17 +33,17 @@ cc.Class({
     
     onAuth:function(ret){
         var self = cc.vv.userMgr;
-        if(ret.errcode !== 0){
-            console.log(ret.errmsg);
-        }
-        else{
+        // if(ret.errcode !== 0){
+        //     console.log(ret.errmsg);
+        // }
+        // else{
             console.log(ret);
             self.account = ret.account;
             self.sign = ret.sign;
             self.userInfo = ret.userInfo;
             cc.vv.http.url = "http://" + cc.vv.SI.hall;
             self.login();
-        }   
+        // }   
     },
     
     login:function(){
@@ -73,7 +73,7 @@ cc.Class({
                 }
             }
         };
-        cc.vv.wc.show("正在登录游戏");
+        // cc.vv.wc.show("正在登录游戏");
         cc.vv.http.sendRequest("/login",{account:this.account,sign:this.sign,userInfo:this.userInfo},onLogin);
     },
     

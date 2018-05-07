@@ -43,10 +43,10 @@ cc.Class({
             cvs.fitHeight = true;
             cvs.fitWidth = true;
         }
-        if(!cc.vv){
-            cc.director.loadScene("loading");
-            return;
-        }
+        // if(!cc.vv){
+        //     cc.director.loadScene("loading");
+        //     return;
+        // }
         this.initLabels();
         
         if(cc.vv.gameNetMgr.roomId == null){
@@ -221,7 +221,8 @@ cc.Class({
     },
     
     onBtnTaobaoClicked:function(){
-        cc.sys.openURL('https://shop596732896.taobao.com/');
+        console.log("onFankuiClicked");
+        // cc.sys.openURL('https://shop596732896.taobao.com/');
     },
 
     // called every frame, uncomment this function to activate update callback

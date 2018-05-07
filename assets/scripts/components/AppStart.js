@@ -97,12 +97,13 @@ cc.Class({
         // console.log('haha'); 
         // this._mainScene = 'loading';
         // this.showSplash(function(){
-            var url = cc.url.raw('resources/ver/cv.txt');
-            cc.loader.load(url,function(err,data){
-                cc.VERSION = data;
-                console.log('current core version:' + cc.VERSION);
+
+            // var url = cc.url.raw('resources/ver/cv.txt');
+            // cc.loader.load(url,function(err,data){
+            //     cc.VERSION = data;
+            //     console.log('current core version:' + cc.VERSION);
                 this.getServerInfo();
-            }.bind(this));
+            // }.bind(this));
         // }.bind(this));
     },
 
@@ -221,13 +222,13 @@ cc.Class({
                 console.log("error.");
             }
             else{
-                cc.vv.SI = ret;
-                if(ret.version != cc.VERSION){
-                    cc.find("Canvas/alert").active = true;
-                }
-                else{
-                    cc.director.loadScene(self._mainScene);
-                }
+                cc.vv.SI = ret;//取后台返回的url
+                // if(ret.version != cc.VERSION){
+                //     cc.find("Canvas/alert").active = true;
+                // }
+                // else{
+                //     cc.director.loadScene(self._mainScene);
+                // }
             }
         };
 

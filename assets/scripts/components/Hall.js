@@ -69,7 +69,6 @@ cc.Class({
         imgLoader.setUserID(cc.vv.userMgr.userId);
         cc.vv.utils.addClickEvent(this.sprHeadImg.node,this.node,"Hall","onBtnClicked");
         
-        
         this.addComponent("UserInfoShow");
         
         this.initButtonHandler("Canvas/right_bottom/btn_shezhi");
@@ -101,6 +100,7 @@ cc.Class({
         cc.vv.audioMgr.playBGM("bgMain.mp3");
 
         cc.vv.utils.addEscEvent(this.node);
+
     },
     
     refreshInfo:function(){
@@ -239,4 +239,12 @@ cc.Class({
             cc.vv.userMgr.roomData = null;
         }
     },
+    /**
+     * 加载图片
+     */
+    addSpritePic: function(container,addres){
+        cc.loader.loadRes(addres, cc.SpriteFrame, function (err, spFrame) {
+            container.spriteFrame = spFrame
+        });
+    }
 });

@@ -149,27 +149,29 @@ cc.Class({
         // button.onTap((res) => {
         //     console.log(res)
         // });
-        wx.authorize({
-            scope: 'scope.record'
-        })
-        wx.login({
-            success: function() {
-                wx.getUserInfo({
-                    openIdList: ['selfOpenId'],
-                    lang: 'zh_CN',
-                    success: function(res) {
-                        console.log('success', res);
-                        let ret = {
-                            errcode: 0,
-                            account: res.userInfo.nickName,
-                            sign: res.signature,
-                            userInfo: JSON.stringify(res.userInfo)
-                        }
-                        cc.vv.userMgr.onAuth(ret);
-                    }
-                })
-            }
-        })
+        // wx.authorize({
+        //     scope: 'scope.record'
+        // })
+        // wx.login({
+        //     success: function() {
+        //         wx.getUserInfo({
+        //             openIdList: ['selfOpenId'],
+        //             lang: 'zh_CN',
+        //             success: function(res) {
+        //                 console.log('success', res);
+        //                 let ret = {
+        //                     errcode: 0,
+        //                     account: res.userInfo.nickName,
+        //                     sign: res.signature,
+        //                     userInfo: JSON.stringify(res.userInfo)
+        //                 }
+        //                 cc.vv.userMgr.onAuth(ret);
+        //             }
+        //         })
+        //     }
+        // })
+        //修改成不用登录的版本，每次都是gust
+        cc.vv.userMgr.guestAuth();
         // console.log(scope.userInfo)
         cc.loader.onComplete = null;
     },

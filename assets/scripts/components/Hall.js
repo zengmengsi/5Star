@@ -74,6 +74,7 @@ cc.Class({
         this.initButtonHandler("Canvas/right_bottom/btn_shezhi");
         this.initButtonHandler("Canvas/right_bottom/btn_help");
         this.initButtonHandler("Canvas/right_bottom/btn_xiaoxi");
+        this.initButtonHandler("Canvas/btn_feedback");
         this.helpWin.addComponent("OnBack");
         this.xiaoxiWin.addComponent("OnBack");
 
@@ -215,7 +216,7 @@ cc.Class({
     },
 
     onReturnGameClicked: function() {
-        // cc.vv.wc.show('正在返回游戏房间');
+        cc.vv.wc.show('正在返回游戏房间');
         cc.director.loadScene("mjgame");
     },
 

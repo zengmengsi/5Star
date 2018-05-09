@@ -238,7 +238,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "GameEnd4",
+    "_name": "hall_bg",
     "_objFlags": 0,
     "_parent": {
       "__id__": 3
@@ -297,7 +297,7 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "61f45545-f8cb-461e-a7a4-0dc551d1d004"
+      "__uuid__": "d9d43345-99f0-4e30-9ff1-77104e638cc4"
     },
     "_type": 0,
     "_sizeMode": 1,
@@ -2288,7 +2288,7 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -26,
+      "x": -306,
       "y": -276
     },
     "_skewX": 0,
@@ -2423,7 +2423,7 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -264,
+      "x": -520,
       "y": -276
     },
     "_skewX": 0,
@@ -27060,7 +27060,7 @@
     "_N$file": null,
     "_isSystemFontUsed": true,
     "_spacingX": 0,
-    "_N$string": "暂无战绩，快去喊小伙伴一起玩吧 :)",
+    "_N$string": "暂无战绩，快去喊小伙伴一起玩吧!",
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",

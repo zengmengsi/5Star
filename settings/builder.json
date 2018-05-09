@@ -14,7 +14,7 @@
   "md5Cache": false,
   "mergeStartScene": false,
   "oauthLoginServer": "",
-  "optimizeHotUpdate": false,
+  "optimizeHotUpdate": true,
   "orientation": {
     "landscapeLeft": true,
     "landscapeRight": true,

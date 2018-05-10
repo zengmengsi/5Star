@@ -577,7 +577,7 @@
       }
     ],
     "_tag": -1,
-    "_active": false,
+    "_active": true,
     "_components": [
       {
         "__id__": 165
@@ -6757,7 +6757,7 @@
       }
     ],
     "_tag": -1,
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 1047
@@ -43304,7 +43304,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 175,
+      "width": 183.33,
       "height": 25
     },
     "_rotationX": 0,
@@ -43339,7 +43339,7 @@
     "_N$file": null,
     "_isSystemFontUsed": true,
     "_spacingX": 0,
-    "_N$string": "云梦卡五星麻将",
+    "_N$string": "卡五星-拳打脚踢",
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",

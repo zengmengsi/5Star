@@ -11,7 +11,7 @@ cc.Class({
         //    readonly: false,    // optional, default is false
         // },
         // ...
-        _leixingxuanze: null,
+        // _leixingxuanze: null,
         _gamelist: null,
         _currentGame: null,
     },
@@ -21,14 +21,15 @@ cc.Class({
 
         this._gamelist = this.node.getChildByName('game_list');
 
-        this._leixingxuanze = [];
-        var t = this.node.getChildByName("leixingxuanze");
-        for (var i = 0; i < t.childrenCount; ++i) {
-            var n = t.children[i].getComponent("RadioButton");
-            if (n != null) {
-                this._leixingxuanze.push(n);
-            }
-        }
+        // this._leixingxuanze = [];
+        // var t = this.node.getChildByName("leixingxuanze");
+        // console.log(t)
+        // for (var i = 0; i < t.childrenCount; ++i) {
+        //     var n = t.children[i].getComponent("RadioButton");
+        //     if (n != null) {
+        //         this._leixingxuanze.push(n);
+        //     }
+        // }
     },
 
     onBtnBack: function () {
@@ -36,11 +37,11 @@ cc.Class({
     },
 
     onBtnOK: function () {
-        var usedTypes = ['xzdd', 'xlch'];
-        var type = this.getType();
-        if (usedTypes.indexOf(type) == -1) {
-            return;
-        }
+        // var usedTypes = ['xzdd', 'xlch'];
+        // var type = this.getType();
+        // if (usedTypes.indexOf(type) == -1) {
+        //     return;
+        // }
 
         this.node.active = false;
         this.createRoom();
@@ -102,15 +103,15 @@ cc.Class({
             }
         };
 
-        var type = this.getType();
+        // var type = this.getType();
         var conf = null;
-        if (type == 'xzdd') {
+        // if (type == 'xzdd') {
             conf = this.constructSCMJConf();
-        }
-        else if (type == 'xlch') {
-            conf = this.constructSCMJConf();
-        }
-        conf.type = type;
+        // }
+        // else if (type == 'xlch') {
+        //     conf = this.constructSCMJConf();
+        // }
+        // conf.type = type;
 
         var data = {
             account: cc.vv.userMgr.account,

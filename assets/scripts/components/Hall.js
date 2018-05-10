@@ -77,6 +77,7 @@ cc.Class({
         this.initButtonHandler("Canvas/btn_feedback");
         this.helpWin.addComponent("OnBack");
         this.xiaoxiWin.addComponent("OnBack");
+        this.feedbakcWin.addComponent("OnBack");
 
         if (!cc.vv.userMgr.notice) {
             cc.vv.userMgr.notice = {
@@ -221,9 +222,7 @@ cc.Class({
     },
 
     onBtnAddGemsClicked: function() {
-        cc.vv.alert.show("提示", cc.vv.userMgr.gemstip.msg, function() {
-            this.onBtnTaobaoClicked();
-        }.bind(this));
+        cc.vv.alert.show("提示", cc.vv.userMgr.gemstip.msg);
         this.refreshInfo();
     },
 
@@ -249,13 +248,5 @@ cc.Class({
             cc.vv.userMgr.enterRoom(cc.vv.userMgr.roomData);
             cc.vv.userMgr.roomData = null;
         }
-    },
-    /**
-     * 加载图片
-     */
-    addSpritePic: function(container, addres) {
-        cc.loader.loadRes(addres, cc.SpriteFrame, function(err, spFrame) {
-            container.spriteFrame = spFrame
-        });
     }
 });

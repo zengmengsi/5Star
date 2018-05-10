@@ -126,7 +126,7 @@ cc.Class({
             sign:cc.vv.userMgr.sign,
             roomid:roomId
         };
-        cc.vv.wc.show("正在进入房间 " + roomId);
+        // cc.vv.wc.show("正在进入房间 " + roomId);
         cc.vv.http.sendRequest("/enter_private_room",data,onEnter);
     },
     getHistoryList:function(callback){

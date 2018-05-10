@@ -38,7 +38,6 @@ cc.Class({
                     content = "房间["+ roomId + "]已满!";
                 }
                 cc.vv.alert.show("提示",content);
-                console.log(cc.vv);
                 this.onResetClicked();
             }
         }.bind(this)); 

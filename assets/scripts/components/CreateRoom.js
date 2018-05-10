@@ -17,7 +17,7 @@ cc.Class({
     },
 
     // use this for initialization
-    onLoad: function () {
+    onLoad: function() {
 
         this._gamelist = this.node.getChildByName('game_list');
 
@@ -32,11 +32,11 @@ cc.Class({
         // }
     },
 
-    onBtnBack: function () {
+    onBtnBack: function() {
         this.node.active = false;
     },
 
-    onBtnOK: function () {
+    onBtnOK: function() {
         // var usedTypes = ['xzdd', 'xlch'];
         // var type = this.getType();
         // if (usedTypes.indexOf(type) == -1) {
@@ -47,7 +47,7 @@ cc.Class({
         this.createRoom();
     },
 
-    getType: function () {
+    getType: function() {
         var type = 0;
         for (var i = 0; i < this._leixingxuanze.length; ++i) {
             if (this._leixingxuanze[i].checked) {
@@ -57,8 +57,7 @@ cc.Class({
         }
         if (type == 0) {
             return 'xzdd';
-        }
-        else if (type == 1) {
+        } else if (type == 1) {
             return 'xlch';
         }
         return 'xzdd';
@@ -85,20 +84,18 @@ cc.Class({
         return selected;
     },
 
-    createRoom: function () {
+    createRoom: function() {
         var self = this;
-        var onCreate = function (ret) {
+        var onCreate = function(ret) {
             if (ret.errcode !== 0) {
                 cc.vv.wc.hide();
                 //console.log(ret.errmsg);
                 if (ret.errcode == 2222) {
                     cc.vv.alert.show("提示", "钻石不足，创建房间失败!");
-                }
-                else {
+                } else {
                     cc.vv.alert.show("提示", "创建房间失败,错误码:" + ret.errcode);
                 }
-            }
-            else {
+            } else {
                 cc.vv.gameNetMgr.connectGameServer(ret);
             }
         };
@@ -106,12 +103,13 @@ cc.Class({
         // var type = this.getType();
         var conf = null;
         // if (type == 'xzdd') {
-            conf = this.constructSCMJConf();
+        conf = this.constructSCMJConf();
         // }
         // else if (type == 'xlch') {
         //     conf = this.constructSCMJConf();
         // }
         // conf.type = type;
+        conf.type = 'xzdd';
 
         var data = {
             account: cc.vv.userMgr.account,
@@ -123,7 +121,7 @@ cc.Class({
         cc.vv.http.sendRequest("/create_private_room", data, onCreate);
     },
 
-    constructSCMJConf: function () {
+    constructSCMJConf: function() {
 
         var wanfaxuanze = this._currentGame.getChildByName('wanfaxuanze');
         var huansanzhang = wanfaxuanze.children[0].getComponent('CheckBox').checked;
@@ -136,26 +134,39 @@ cc.Class({
         var zuidafanshu = this.getSelectedOfRadioGroup('zuidafanshu');
         var jushuxuanze = this.getSelectedOfRadioGroup('xuanzejushu');
         var dianganghua = this.getSelectedOfRadioGroup('dianganghua');
-        
+
         var conf = {
-            difen:difen,
-            zimo:zimo,
-            jiangdui:jiangdui,
-            huansanzhang:huansanzhang,
-            zuidafanshu:zuidafanshu,
-            jushuxuanze:jushuxuanze,
-            dianganghua:dianganghua,
-            menqing:menqing,
-            tiandihu:tiandihu,   
+            difen: difen,
+            zimo: zimo,
+            jiangdui: jiangdui,
+            huansanzhang: huansanzhang,
+            zuidafanshu: zuidafanshu,
+            jushuxuanze: jushuxuanze,
+            dianganghua: dianganghua,
+            menqing: menqing,
+            tiandihu: tiandihu,
         };
         return conf;
     },
 
 
     // called every frame, uncomment this function to activate update callback
-    update: function (dt) {
+    update: function(dt) {
 
-        var type = this.getType();
+        // var type = this.getType();
+        // if (this.lastType != type) {
+        //     this.lastType = type;
+        //     for (var i = 0; i < this._gamelist.childrenCount; ++i) {
+        //         this._gamelist.children[i].active = false;
+        //     }
+
+        //     var game = this._gamelist.getChildByName(type);
+        //     if (game) {
+        //         game.active = true;
+        //     }
+        //     this._currentGame = game;
+        // }
+        var type = 'xzdd';
         if (this.lastType != type) {
             this.lastType = type;
             for (var i = 0; i < this._gamelist.childrenCount; ++i) {

@@ -38,6 +38,7 @@ cc.Class({
     initView:function(){
         var prepare = this.node.getChildByName("prepare");
         var seats = prepare.getChildByName("seats");
+        console.log(seats);
         for(var i = 0; i < seats.children.length; ++i){
             this._seats.push(seats.children[i].getComponent("Seat"));
         }
@@ -48,7 +49,8 @@ cc.Class({
         this._timeLabel = cc.find("Canvas/infobar/time").getComponent(cc.Label);
         this.lblRoomNo.string = cc.vv.gameNetMgr.roomId;
         var gameChild = this.node.getChildByName("game");
-        var sides = ["myself","right","up","left"];
+        // var sides = ["myself","right","up","left"];
+        var sides = ["myself","right","left"];
         for(var i = 0; i < sides.length; ++i){
             var sideNode = gameChild.getChildByName(sides[i]);
             var seat = sideNode.getChildByName("seat");
@@ -61,19 +63,19 @@ cc.Class({
         }
         
         
-        var titles = cc.find("Canvas/typeTitle");
-        for(var i = 0; i < titles.children.length; ++i){
-            titles.children[i].active = false;
-        }
+        // var titles = cc.find("Canvas/typeTitle");
+        // for(var i = 0; i < titles.children.length; ++i){
+        //     titles.children[i].active = false;
+        // }
         
-        if(cc.vv.gameNetMgr.conf){
-            var type = cc.vv.gameNetMgr.conf.type;
-            if(type == null || type == ""){
-                type = "xzdd";
-            }
+        // if(cc.vv.gameNetMgr.conf){
+        //     var type = cc.vv.gameNetMgr.conf.type;
+        //     if(type == null || type == ""){
+        //         type = "xzdd";
+        //     }
             
-            titles.getChildByName(type).active = true;   
-        }
+        //     titles.getChildByName(type).active = true;   
+        // }
     },
     
     refreshBtns:function(){
@@ -167,6 +169,8 @@ cc.Class({
     
     initSeats:function(){
         var seats = cc.vv.gameNetMgr.seats;
+        console.log('~~~~~~~~~~~~~~~~~~~~~~~')
+        console.log(seats)
         for(var i = 0; i < seats.length; ++i){
             this.initSingleSeat(seats[i]);
         }

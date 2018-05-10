@@ -29,7 +29,7 @@ cc.Class({
     initView:function(){
         this._folds = {};
         var game = this.node.getChildByName("game");
-        var sides = ["myself","right","up","left"];
+        var sides = ["myself","right","left"];
         for(var i = 0; i < sides.length; ++i){
             var sideName = sides[i];
             var sideRoot = game.getChildByName(sideName);
@@ -95,7 +95,7 @@ cc.Class({
         var foldsSprites = this._folds[side];
         for(var i = 0; i < foldsSprites.length; ++i){
             var index = i;
-            if(side == "right" || side == "up"){
+            if(side == "right"){
                 index = foldsSprites.length - i - 1;
             }
             var sprite = foldsSprites[index];
@@ -104,7 +104,7 @@ cc.Class({
         }
         for(var i = folds.length; i < foldsSprites.length; ++i){
             var index = i;
-            if(side == "right" || side == "up"){
+            if(side == "right"){
                 index = foldsSprites.length - i - 1;
             }
             var sprite = foldsSprites[index];

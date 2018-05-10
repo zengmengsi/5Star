@@ -39,6 +39,7 @@ cc.Class({
         this.isDingQueing = false;
         this.isHuanSanZhang = false;
         this.curaction = null;
+        console.log('~~~~~~~~~~~~~',this.seats)
         for(var i = 0; i < this.seats.length; ++i){
             this.seats[i].holds = [];
             this.seats[i].folds = [];
@@ -95,7 +96,7 @@ cc.Class({
     },
     
     getLocalIndex:function(index){
-        var ret = (index - this.seatIndex + 4) % 4;
+        var ret = (index - this.seatIndex + 3) % 3;
         return ret;
     },
     
@@ -329,7 +330,7 @@ cc.Class({
             self.button = data.button;
             self.chupai = data.chuPai;
             self.huanpaimethod = data.huanpaimethod;
-            for(var i = 0; i < 4; ++i){
+            for(var i = 0; i < 3; ++i){
                 var seat = self.seats[i];
                 var sd = data.seats[i];
                 seat.holds = sd.holds;
@@ -611,7 +612,7 @@ cc.Class({
             seatData.wangangs.push(pai);      
         }
         if(seatData.holds){
-            for(var i = 0; i <= 4; ++i){
+            for(var i = 0; i <= 3; ++i){
                 var idx = seatData.holds.indexOf(pai);
                 if(idx == -1){
                     //如果没有找到，表示移完了，直接跳出循环

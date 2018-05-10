@@ -55,7 +55,7 @@ cc.Class({
     onGameBein:function(){
         this.hideSide("myself");
         this.hideSide("right");
-        this.hideSide("up");
+        // this.hideSide("up");
         this.hideSide("left");
     },
     

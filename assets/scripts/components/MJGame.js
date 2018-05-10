@@ -89,7 +89,8 @@ cc.Class({
         myholds.scaleX *= realwidth/1280;
         myholds.scaleY *= realwidth/1280;  
         
-        var sides = ["myself","right","up","left"];
+        // var sides = ["myself","right","up","left"];
+        var sides = ["myself","right","left"];
         for(var i = 0; i < sides.length; ++i){
             var side = sides[i];
             
@@ -565,7 +566,7 @@ cc.Class({
         
         this.hideChupai();
         this.hideOptions();
-        var sides = ["right","up","left"];        
+        var sides = ["right","left"];        
         var gameChild = this.node.getChildByName("game");
         for(var i = 0; i < sides.length; ++i){
             var sideChild = gameChild.getChildByName(sides[i]);
@@ -714,12 +715,14 @@ cc.Class({
     },
     
     initOtherMahjongs:function(seatData){
-        //console.log("seat:" + seatData.seatindex);
+        console.log("seat:-" , seatData);
         var localIndex = this.getLocalIndex(seatData.seatindex);
+        console.log(localIndex)
         if(localIndex == 0){
             return;
         }
         var side = cc.vv.mahjongmgr.getSide(localIndex);
+        console.log(side)
         var game = this.node.getChildByName("game");
         var sideRoot = game.getChildByName(side);
         var sideHolds = sideRoot.getChildByName("holds");
@@ -865,7 +868,7 @@ cc.Class({
     },
     
     getLocalIndex:function(index){
-        var ret = (index - cc.vv.gameNetMgr.seatIndex + 4) % 4;
+        var ret = (index - cc.vv.gameNetMgr.seatIndex + 3) % 3;
         //console.log("old:" + index + ",base:" + cc.vv.gameNetMgr.seatIndex + ",new:" + ret);
         return ret;
     },

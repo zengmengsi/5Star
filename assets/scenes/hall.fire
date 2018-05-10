@@ -11933,7 +11933,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 46.68,
+      "width": 106.68,
       "height": 30
     },
     "_rotationX": 0,
@@ -11968,7 +11968,7 @@
     "_N$file": null,
     "_isSystemFontUsed": true,
     "_spacingX": 0,
-    "_N$string": "3番",
+    "_N$string": "8番封顶",
     "_N$horizontalAlign": 0,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
@@ -12335,7 +12335,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 46.68,
+      "width": 123.37,
       "height": 30
     },
     "_rotationX": 0,
@@ -12370,7 +12370,7 @@
     "_N$file": null,
     "_isSystemFontUsed": true,
     "_spacingX": 0,
-    "_N$string": "4番",
+    "_N$string": "16番封顶",
     "_N$horizontalAlign": 0,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
@@ -16216,7 +16216,7 @@
       }
     ],
     "_tag": -1,
-    "_active": true,
+    "_active": false,
     "_components": [],
     "_prefab": null,
     "_id": "c4a93TwEwpCBJKv8CKRSLoL",
@@ -19782,7 +19782,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 123.37,
+      "width": 0,
       "height": 30
     },
     "_rotationX": 0,
@@ -19817,7 +19817,7 @@
     "_N$file": null,
     "_isSystemFontUsed": true,
     "_spacingX": 0,
-    "_N$string": "16番封顶",
+    "_N$string": "",
     "_N$horizontalAlign": 0,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
@@ -20184,7 +20184,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 46.68,
+      "width": 90,
       "height": 30
     },
     "_rotationX": 0,
@@ -20219,7 +20219,7 @@
     "_N$file": null,
     "_isSystemFontUsed": true,
     "_spacingX": 0,
-    "_N$string": "5番",
+    "_N$string": "不封顶",
     "_N$horizontalAlign": 0,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
@@ -22850,7 +22850,6 @@
       "__id__": 217
     },
     "_enabled": true,
-    "_leixingxuanze": null,
     "_gamelist": null,
     "_currentGame": null
   },

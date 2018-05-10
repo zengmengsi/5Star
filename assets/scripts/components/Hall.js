@@ -99,7 +99,7 @@ cc.Class({
         this.refreshNotice();
         this.refreshGemsTip();
 
-        cc.vv.audioMgr.playBGM("bgMain.mp3");
+        // cc.vv.audioMgr.playBGM("bgMain.mp3");
 
         cc.vv.utils.addEscEvent(this.node);
 

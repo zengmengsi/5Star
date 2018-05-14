@@ -30,10 +30,10 @@ cc.Class({
             cvs.fitHeight = true;
             cvs.fitWidth = true;
         }
-        if(!cc.vv){
-            cc.director.loadScene("loading");
-            return;
-        }
+        // if(!cc.vv){
+        //     cc.director.loadScene("loading");
+        //     return;
+        // }
         this.addComponent("NoticeTip");
         this.addComponent("GameOver");
         this.addComponent("DingQue");

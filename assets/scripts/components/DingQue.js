@@ -22,9 +22,10 @@ cc.Class({
         if(cc.vv == null){
             return;
         }
-        this.initView();
-        this.initDingQue();
-        this.initEventHandlers();
+        cc.vv.net.send("dingque",2);
+        // this.initView();
+        // this.initDingQue();
+        // this.initEventHandlers();
     },
     
     initView:function(){
@@ -37,6 +38,7 @@ cc.Class({
             var side = gameChild.getChildByName(arr[i]);
             var seat = side.getChildByName("seat");
             var dingque = seat.getChildByName("que");
+
             this.dingques.push(dingque);
         }
         this.reset();
@@ -117,22 +119,22 @@ cc.Class({
     },
     
     initDingQue:function(){
-        var arr = ["tong","tiao","wan"];
-        var data = cc.vv.gameNetMgr.seats;
-        for(var i = 0; i < data.length; ++i){
-            var que = data[i].dingque;
-            if(que == null || que < 0 || que >= arr.length){
-                que = null;
-            }
-            else{
-                que = arr[que]; 
-            }
+        // var arr = ["tong","tiao","wan"];
+        // var data = cc.vv.gameNetMgr.seats;
+        // for(var i = 0; i < data.length; ++i){
+        //     var que = data[i].dingque;
+        //     if(que == null || que < 0 || que >= arr.length){
+        //         que = null;
+        //     }
+        //     else{
+        //         que = arr[que]; 
+        //     }
             
-            var localIndex = cc.vv.gameNetMgr.getLocalIndex(i);
-            if(que){
-                this.dingques[localIndex].getChildByName(que).active = true;    
-            }
-        }
+        //     var localIndex = cc.vv.gameNetMgr.getLocalIndex(i);
+        //     if(que){
+        //         this.dingques[localIndex].getChildByName(que).active = true;    
+        //     }
+        // }
     },
     
     reset:function(){

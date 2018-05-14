@@ -39,7 +39,6 @@ cc.Class({
         this.isDingQueing = false;
         this.isHuanSanZhang = false;
         this.curaction = null;
-        console.log('~~~~~~~~~~~~~',this.seats)
         for(var i = 0; i < this.seats.length; ++i){
             this.seats[i].holds = [];
             this.seats[i].folds = [];
@@ -320,10 +319,13 @@ cc.Class({
             console.log(data);
             self.numOfMJ = data.numofmj;
             self.gamestate = data.state;
-            if(self.gamestate == "dingque"){
-                self.isDingQueing = true;
-            }
-            else if(self.gamestate == "huanpai"){
+            // if(self.gamestate == "dingque"){
+            //     self.isDingQueing = true;
+            // }
+            // else if(self.gamestate == "huanpai"){
+            //     self.isHuanSanZhang = true;
+            // }
+            if(self.gamestate == "huanpai"){
                 self.isHuanSanZhang = true;
             }
             self.turn = data.turn;
@@ -333,6 +335,7 @@ cc.Class({
             for(var i = 0; i < 3; ++i){
                 var seat = self.seats[i];
                 var sd = data.seats[i];
+                sd.que=2;
                 seat.holds = sd.holds;
                 seat.folds = sd.folds;
                 seat.angangs = sd.angangs;

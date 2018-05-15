@@ -68,9 +68,9 @@ cc.Class({
         }
         
         //万
-        for(var i = 1; i < 10; ++i){
-            mahjongSprites.push("character_" + i);
-        }
+        // for(var i = 1; i < 10; ++i){
+        //     mahjongSprites.push("character_" + i);
+        // }
         
         //中、发、白
         mahjongSprites.push("red");

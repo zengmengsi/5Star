@@ -54,8 +54,8 @@ cc.Class({
             return;
         }
         this._sides = ["myself","right","left"];
-        this._pres = ["M_","R_","B_","L_"];
-        this._foldPres = ["B_","R_","B_","L_"];
+        this._pres = ["M_","R_","L_"];
+        this._foldPres = ["B_","R_","L_"];
         cc.vv.mahjongmgr = this; 
         //筒
         for(var i = 1; i < 10; ++i){
@@ -68,9 +68,9 @@ cc.Class({
         }
         
         //万
-        // for(var i = 1; i < 10; ++i){
-        //     mahjongSprites.push("character_" + i);
-        // }
+        for(var i = 1; i < 10; ++i){
+            mahjongSprites.push("character_" + i);
+        }
         
         //中、发、白
         mahjongSprites.push("red");

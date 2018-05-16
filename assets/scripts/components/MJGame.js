@@ -577,6 +577,7 @@ cc.Class({
                 nc.scaleX = 1.0;
                 nc.scaleY = 1.0;
                 var sprite = nc.getComponent(cc.Sprite); 
+                console.log(cc.vv.mahjongmgr.holdsEmpty[i+1])
                 sprite.spriteFrame = cc.vv.mahjongmgr.holdsEmpty[i+1];
             }            
         }

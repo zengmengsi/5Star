@@ -6836,7 +6836,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 108.68,
+      "width": 106.68,
       "height": 30
     },
     "_rotationX": 0,
@@ -6930,7 +6930,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 108.68,
+      "width": 106.68,
       "height": 30
     },
     "_rotationX": 0,
@@ -7908,7 +7908,7 @@
     },
     "_children": [],
     "_tag": -1,
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 196

@@ -425,7 +425,7 @@ cc.Class({
                 cc.vv.audioMgr.playSFX("guafeng.mp3");
             }
             else{
-                self.playEfx(localIndex,"play_xiayu");
+                // self.playEfx(localIndex,"play_xiayu");
                 cc.vv.audioMgr.playSFX("rain.mp3");
             }
         });

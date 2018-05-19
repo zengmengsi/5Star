@@ -421,7 +421,7 @@ cc.Class({
             
             var localIndex = self.getLocalIndex(seatData.seatindex);
             if(gangtype == "wangang"){
-                self.playEfx(localIndex,"play_guafeng");
+                // self.playEfx(localIndex,"play_guafeng");
                 cc.vv.audioMgr.playSFX("guafeng.mp3");
             }
             else{

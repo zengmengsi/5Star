@@ -173,7 +173,7 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "9624a333-2116-41ad-b1e8-cb066fed8c70"
+      "__uuid__": "8b4ea10d-0159-4cb1-9b95-aa49ca98783f"
     },
     "_type": 0,
     "_sizeMode": 1,
@@ -266,7 +266,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "LOGO",
+    "_name": "label",
     "_objFlags": 0,
     "_parent": {
       "__id__": 2
@@ -280,13 +280,13 @@
       }
     ],
     "_prefab": null,
-    "_id": "c7eef85xWtO/ZZ1KvYzIvqA",
+    "_id": "44x5T15dJGWa206ZN8+scx",
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 255,
-      "g": 255,
-      "b": 255,
+      "r": 26,
+      "g": 186,
+      "b": 75,
       "a": 255
     },
     "_cascadeOpacityEnabled": true,
@@ -297,8 +297,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 883,
-      "height": 228
+      "width": 320,
+      "height": 80
     },
     "_rotationX": 0,
     "_rotationY": 0,
@@ -317,30 +317,26 @@
     "groupIndex": 0
   },
   {
-    "__type__": "cc.Sprite",
+    "__type__": "cc.Label",
     "_name": "",
     "_objFlags": 0,
     "node": {
       "__id__": 7
     },
     "_enabled": true,
-    "_spriteFrame": {
-      "__uuid__": "f1de8d77-4a6e-4f00-b05b-53033aa6f267"
-    },
-    "_type": 0,
-    "_sizeMode": 1,
-    "_fillType": 0,
-    "_fillCenter": {
-      "__type__": "cc.Vec2",
-      "x": 0,
-      "y": 0
-    },
-    "_fillStart": 0,
-    "_fillRange": 0,
-    "_isTrimmedMode": true,
-    "_srcBlendFactor": 770,
-    "_dstBlendFactor": 771,
-    "_atlas": null
+    "_useOriginalSize": false,
+    "_actualFontSize": 80,
+    "_fontSize": 80,
+    "_lineHeight": 80,
+    "_enableWrapText": true,
+    "_N$file": null,
+    "_isSystemFontUsed": true,
+    "_spacingX": 0,
+    "_N$string": "开心棋牌",
+    "_N$horizontalAlign": 1,
+    "_N$verticalAlign": 1,
+    "_N$fontFamily": "Arial",
+    "_N$overflow": 0
   },
   {
     "__type__": "cc.Canvas",

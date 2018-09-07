@@ -53,6 +53,7 @@ cc.Class({
 
     // use this for initialization
     onLoad: function () {
+        console.log('create role');
         if(!cc.sys.isNative && cc.sys.isMobile){
             var cvs = this.node.getComponent(cc.Canvas);
             cvs.fitHeight = true;
@@ -62,6 +63,7 @@ cc.Class({
     },
 
     onBtnConfirmClicked:function(){
+        console.log(123);
         var name = this.inputName.string;
         if(name == ""){
             console.log("invalid name.");
